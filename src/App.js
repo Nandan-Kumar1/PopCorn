@@ -22,7 +22,7 @@ export default function App() {
         setError("");
         try {
           const resp = await fetch(
-            `http://www.omdbapi.com/?apikey=${key}&s=${query}`,
+            `https://www.omdbapi.com/?apikey=${key}&s=${query}`,
             { signal: controller.signal }
           );
           if (!resp.ok) throw new Error("Connection Lost");
@@ -257,7 +257,7 @@ function MovieDetail({ id, setSelectedId, setWatched, watched }) {
       async function reqMov() {
         setIsLoading(true);
         const resp = await fetch(
-          `http://www.omdbapi.com/?apikey=${key}&i=${id}`
+          `https://www.omdbapi.com/?apikey=${key}&i=${id}`
         );
         const data = await resp.json();
         console.log(data);
